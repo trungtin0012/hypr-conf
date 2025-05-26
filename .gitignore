@@ -1,0 +1,7 @@
+# Ignore everything in repository root 
+/*
+
+!.gitignore
+!/hypr/
+!/waybar/
+!/wlogout/
