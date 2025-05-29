@@ -1,36 +1,20 @@
 // -*- mode: jsonc -*-
 {
-    "include":[
-    	"$HOME/.config/waybar/ModulesGroups",
-        "$HOME/.config/waybar/Modules"
-    ],
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 25, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
-        "idle_inhibitor",
-        "group/system-info",
-        "hyprland/workspaces",
-        "hyprland/submap"
-        //"sway/scratchpad",
-        //"custom/media"
-    ],
-    "modules-center": [
-        "hyprland/window",
-    ],
-    "modules-right": [
-        "mpd",
-        "pulseaudio",
-        //"power-profiles-daemon",
-        // "sway/language",
-        "clock",
-        //"tray",
-        // "hyprland/language",
-        // "custom/lock",
-        "tray",
-        "custom/power"
-    ],
+  "include": ["$HOME/.config/waybar/modules"],
+  // "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  // "height": 25, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  "spacing": 5, // Gaps between modules (4px)
+  "margin-left": 5,
+  "margin-right": 5,
+  "margin-top": 5,
+  "modules-left": ["hyprland/window", "hyprland/workspaces", "custom/wallpaper"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "group/system-info",
+    "wireplumber",
+    "custom/power"
+  ]
 }

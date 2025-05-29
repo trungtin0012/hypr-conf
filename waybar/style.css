@@ -1,38 +1,27 @@
-@import "style/mocha.css";
+@import url("style/mocha.css");
 
 * {
-  font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
   min-height: 0;
 }
 
-#waybar {
-  background: transparent;
-  color: @text;
-  margin: 5px 5px;
-}
-
-#workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
-}
-
-#workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
-}
-
-#workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
-}
-
-#workspaces button:hover {
+*:hover {
   color: @sapphire;
-  border-radius: 1rem;
+}
+
+window#waybar {
+  color: @text;
+  opacity: 0.8;
+  background-color: @mantle;
+  border-radius: 0.3rem;
+  border: 0.1rem solid @green;
+  /* padding: 10rem; */
+  /* margin: 0rem 0.4rem; */
+}
+
+#windows {
+  min-width: 20rem;
 }
 
 #custom-music,
@@ -42,67 +31,46 @@
 #battery,
 #pulseaudio,
 #custom-lock,
-#custom-power ,
+#custom-wallpaper,
+#workspaces,
+#system-info,
+#custom-group
+{
+  /* background-color: @mauve; */
+  padding: 0 0.6rem;
+  margin: 0.3rem 0.3rem;
+  border-radius: 1rem;
+}
+
 #cpu, 
 #idle_inhibitor,
 #memory,
 #temperature,
-#power-profiles-daemon
-{
-  background-color: @surface0;
-  padding: 0.5rem 6px;
-  margin: 5px 0;
-}
-
-#clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
-}
-
-/* #battery {
-  color: @green;
-}
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @red;
-}
-
-#backlight {
-  color: @yellow;
-}
-
-#backlight, #battery {
-    border-radius: 0;
-} */
-
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
-}
-
-/* #custom-music {
-  color: @mauve;
-  border-radius: 1rem;
-}
-
-#custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @lavender;
+#network,
+#power-profiles-daemon {
+  padding-right: 2rem;
 }
 
 #custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
-} */
+  margin: 0;
+  padding-right: 1rem;
+}
 
-#tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
+#workspaces {
+  padding: 0;
+  background-color: @green;
+  color: @mantle;
+}
+
+#workspaces button.active {
+  background-color: @overlay2;
+  border-radius: 0.5rem;
+}
+
+#custom-wallpaper {
+  color: @lavender;
+}
+
+#clock {
+  color: @peach;
 }
