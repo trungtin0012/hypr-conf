@@ -12,10 +12,10 @@
 
 /* Reset all styles */
 * {
-    border: none;
-    border-radius: 3px;
-    min-height: 0;
-    margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  border: none;
+  border-radius: 3px;
+  min-height: 0;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
 }
 
 *:hover {
@@ -30,7 +30,7 @@ window#waybar {
   border: 0.1rem solid @green;
 }
 
-.modules-center *{
+.modules-center * {
   font-size: 1.3rem;
 }
 
@@ -59,7 +59,8 @@ window#waybar {
 #custom-weather.rainyNight,
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
-#custom-weather.default {
+#custom-weather.default,
+#custom-brightness {
   /* background-color: @mauve; */
   padding: 0 0.6rem;
   /* margin: 0.3rem 0.3rem; */
@@ -75,18 +76,34 @@ window#waybar {
   /* padding-right: 2rem; */
 }
 
+#workspaces button,
+#custom-screenshot_t {
+  color: @mantle;
+}
+
+#custom-power, #custom-brightness {
+  color: @peach;
+}
+
+
+#custom-screenshot_t {
+  background-color: @text;
+  color: @mantle;
+  border-radius: 0.7rem;
+  padding: 0 0.7rem;
+}
+
+#custom-screenshot_t:hover {
+  background-color: @sapphire;
+}
+
 #custom-power {
   padding-right: 0.3rem;
-  color: @peach;
   font-size: 2rem
 }
 
 #workspaces {
   background-color: @green;
-}
-
-#workspaces button {
-  color: @mantle;
 }
 
 #workspaces button.active {
@@ -100,50 +117,39 @@ window#waybar {
 }
 
 #custom-weather.severe {
-    color: #eb937d;
+  color: #eb937d;
 }
 
 #custom-weather.sunnyDay {
-    color: #c2ca76;
+  color: #c2ca76;
 }
 
 #custom-weather.clearNight {
-    color: #cad3f5;
+  color: #cad3f5;
 }
 
 #custom-weather.cloudyFoggyDay,
 #custom-weather.cloudyFoggyNight {
-    color: #c2ddda;
+  color: #c2ddda;
 }
 
 #custom-weather.rainyDay,
 #custom-weather.rainyNight {
-    color: #5aaca5;
+  color: #5aaca5;
 }
 
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight {
-    color: #d6e7e5;
+  color: #d6e7e5;
 }
 
 #custom-weather.default {
-    color: #dbd9d8;
+  color: #dbd9d8;
 }
 
 #custom-screenshot_t {
-    background-color: @text;
-    color: @mantle;
-    border-radius: 0.7rem;
-    padding: 0 0.7rem;
-}
-
-#custom-screenshot_t {
-    background-color: @text;
-    color: @mantle;
-    border-radius: 0.7rem;
-    padding: 0 0.7rem;
-}
-
-#custom-screenshot_t:hover {
-  background-color: @sapphire;
+  background-color: @text;
+  color: @mantle;
+  border-radius: 0.7rem;
+  padding: 0 0.7rem;
 }

@@ -13,7 +13,7 @@
         //"custom/rofi",
         "hyprland/workspaces",
         //"hyprland/submap",
-        //"idle_inhibitor",
+        "idle_inhibitor",
         "mpd",
         "hyprland/window"
         // "custom/spotify"
@@ -26,7 +26,7 @@
     ],
     "modules-right": [
         "custom/screenshot_t",
-        "backlight",
+        "custom/brightness",
         "temperature",
         "memory",
         "cpu",
