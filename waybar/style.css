@@ -1,9 +1,21 @@
 @import url("style/mocha.css");
 
 * {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  min-height: 0;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2rem 0.2rem 0.2rem 0.2rem;
 }
 
 *:hover {
@@ -16,8 +28,10 @@ window#waybar {
   background-color: @mantle;
   border-radius: 0.3rem;
   border: 0.1rem solid @green;
-  /* padding: 10rem; */
-  /* margin: 0rem 0.4rem; */
+}
+
+.modules-center *{
+  font-size: 1.3rem;
 }
 
 #windows {
@@ -34,43 +48,102 @@ window#waybar {
 #custom-wallpaper,
 #workspaces,
 #system-info,
-#custom-group
-{
+#custom-group,
+#custom-weather,
+#custom-weather.severe,
+#custom-weather.sunnyDay,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.default {
   /* background-color: @mauve; */
   padding: 0 0.6rem;
-  margin: 0.3rem 0.3rem;
+  /* margin: 0.3rem 0.3rem; */
   border-radius: 1rem;
 }
 
-#cpu, 
+#cpu,
 #idle_inhibitor,
 #memory,
 #temperature,
 #network,
 #power-profiles-daemon {
-  padding-right: 2rem;
+  /* padding-right: 2rem; */
 }
 
 #custom-power {
-  margin: 0;
-  padding-right: 1rem;
+  padding-right: 0.3rem;
+  color: @peach;
+  font-size: 2rem
 }
 
 #workspaces {
-  padding: 0;
   background-color: @green;
+}
+
+#workspaces button {
   color: @mantle;
 }
 
 #workspaces button.active {
-  background-color: @overlay2;
+  background-color: @peach;
   border-radius: 0.5rem;
+  padding: 0 0.7rem;
 }
 
 #custom-wallpaper {
   color: @lavender;
 }
 
-#clock {
-  color: @peach;
+#custom-weather.severe {
+    color: #eb937d;
+}
+
+#custom-weather.sunnyDay {
+    color: #c2ca76;
+}
+
+#custom-weather.clearNight {
+    color: #cad3f5;
+}
+
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight {
+    color: #c2ddda;
+}
+
+#custom-weather.rainyDay,
+#custom-weather.rainyNight {
+    color: #5aaca5;
+}
+
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight {
+    color: #d6e7e5;
+}
+
+#custom-weather.default {
+    color: #dbd9d8;
+}
+
+#custom-screenshot_t {
+    background-color: @text;
+    color: @mantle;
+    border-radius: 0.7rem;
+    padding: 0 0.7rem;
+}
+
+#custom-screenshot_t {
+    background-color: @text;
+    color: @mantle;
+    border-radius: 0.7rem;
+    padding: 0 0.7rem;
+}
+
+#custom-screenshot_t:hover {
+  background-color: @sapphire;
 }

@@ -1,4 +1,5 @@
 #!/bin/bash
+TZ="Asia/Ho_Chi_Minh"
 
 # Get new data
 #./get_weather.sh
@@ -41,20 +42,21 @@ else
   ret_text="Could not process weather file ($WEATHER_FILE)"
 fi
 
-# --- Forecast ---
+# --- Forecast tooltip ---
 if [ -f "$FORECAST_FILE" ]; then
-  cast=""
   forecast=$(<"$FORECAST_FILE")
+  cast=""
   declare -A temps_by_day
+  declare -A lines_by_day
+  declare -A first_seen_day
 
-  day=$(date +%Y.%m.%d)
   mapfile -t forecasts < <(echo "$forecast" | jq -c '.list[]')
 
   for f in "${forecasts[@]}"; do
     dt=$(echo "$f" | jq -r '.dt')
-    time=$(date -d @"$dt" +'%H:%M')
-    time_hour=$(date -d @"$dt" +'%H')
-    time_day=$(date -d @"$dt" +'%Y.%m.%d')
+    time_str=$(date -u -d @"$dt" +'%H:%M')
+    date_str=$(date -u -d @"$dt" +'%Y-%m-%d')
+    day_label=$(date -u -d @"$dt" +'%A, %Y-%m-%d')
 
     temp=$(echo "$f" | jq -r '.main.temp')
     hum=$(echo "$f" | jq -r '.main.humidity')
@@ -63,26 +65,20 @@ if [ -f "$FORECAST_FILE" ]; then
     icon_desc=$(echo "$f" | jq -r '.weather[0].description')
     icon=${ICONS[$icon_code]:-"？$icon_code"}
 
-    temps_by_day["$time_day"]+="$temp "
+    formatted_line="$time_str | $(awk -v t="$temp" 'BEGIN {printf "%.2f", t}')°C | 🌢$(awk -v h="$hum" 'BEGIN {printf "%d", h}')%% | $icon $icon_desc"
 
-    if [ "$time_hour" = "00" ]; then
-      day_temps="${temps_by_day[$day]}"
-      min=$(echo "$day_temps" | awk '{min=$1; for(i=1;i<=NF;i++) if($i<min) min=$i; print min}')
-      max=$(echo "$day_temps" | awk '{max=$1; for(i=1;i<=NF;i++) if($i>max) max=$i; print max}')
-      cast+="        ↑ min: <b>$(awk -v x="$min" 'BEGIN {printf "%.2f", x}')°C</b> max: <b>$(awk -v x="$max" 'BEGIN {printf "%.2f", x}')°C</b>\n"
-      cast+="     ┍━━━━━┫  <b>${time_day}</b> ┠━━━━━┑\n"
-      day="$time_day"
-    fi
-
-    cast+="$time | $(awk -v t="$temp" 'BEGIN {printf "%.2f", t}')°C | 🌢$(awk -v h="$hum" 'BEGIN {printf "%d", h}')%% | $icon $icon_desc\n"
+    # Group by date
+    temps_by_day[$date_str]+="$temp "
+    lines_by_day[$date_str]+="$formatted_line"$'\n'
   done
 
-  # Last day min/max
-  if [ -n "${temps_by_day[$day]}" ]; then
-    min=$(echo "${temps_by_day[$day]}" | awk '{min=$1; for(i=1;i<=NF;i++) if($i<min) min=$i; print min}')
-    max=$(echo "${temps_by_day[$day]}" | awk '{max=$1; for(i=1;i<=NF;i++) if($i>max) max=$i; print max}')
-    cast+="        ↑ min: <b>$(awk -v x="$min" 'BEGIN {printf "%.2f", x}')</b>°C max: <b>$(awk -v x="$max" 'BEGIN {printf "%.2f", x}')°C</b>\n"
-  fi
+  for day in $(printf "%s\n" "${!lines_by_day[@]}" | sort); do
+    min=$(echo "${temps_by_day[$day]}" | awk '{min=$1; for(i=2;i<=NF;i++) if($i<min) min=$i; print min}')
+    max=$(echo "${temps_by_day[$day]}" | awk '{max=$1; for(i=2;i<=NF;i++) if($i>max) max=$i; print max}')
+    cast+="┍━━━━━┫  <b>$day</b> ┠━━━━━┑\n"
+    cast+="${lines_by_day[$day]}"
+    cast+="↑ min: <b>$(awk -v m="$min" 'BEGIN {printf "%.2f", m}')°C</b> max: <b>$(awk -v m="$max" 'BEGIN {printf "%.2f", m}')°C</b>\n\n"
+  done
 
   ret_tooltip=$(echo -e "$cast")
 else
