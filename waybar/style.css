@@ -16,6 +16,7 @@
   border-radius: 3px;
   min-height: 0;
   margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  font-size: 1rem
 }
 
 *:hover {
@@ -34,14 +35,9 @@ window#waybar {
   font-size: 1.3rem;
 }
 
-#windows {
-  min-width: 20rem;
-}
-
 #custom-music,
 #tray,
 #backlight,
-#clock,
 #battery,
 #pulseaudio,
 #custom-lock,
@@ -49,51 +45,43 @@ window#waybar {
 #workspaces,
 #system-info,
 #custom-group,
-#custom-weather,
-#custom-weather.severe,
-#custom-weather.sunnyDay,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.default,
-#custom-brightness {
-  /* background-color: @mauve; */
+#custom-brightness,
+#custom-media, 
+#wireplumber {
   padding: 0 0.6rem;
   /* margin: 0.3rem 0.3rem; */
   border-radius: 1rem;
 }
 
-#cpu,
-#idle_inhibitor,
-#memory,
-#temperature,
-#network,
-#power-profiles-daemon {
-  /* padding-right: 2rem; */
-}
-
 #workspaces button,
-#custom-screenshot_t {
+#custom-screenshot_t, 
+#custom-media,
+#custom-notification {
+
   color: @mantle;
 }
 
-#custom-power, #custom-brightness {
+#custom-screenshot_t, 
+#wireplumber, 
+#custom-brightness,
+#custom-notification {
+  font-size: 1.3rem;
+}
+
+#custom-power {
   color: @peach;
 }
 
 
-#custom-screenshot_t {
+#custom-screenshot_t, #custom-notification {
   background-color: @text;
   color: @mantle;
   border-radius: 0.7rem;
   padding: 0 0.7rem;
 }
 
-#custom-screenshot_t:hover {
+#custom-screenshot_t:hover, 
+#custom-notification:hover {
   background-color: @sapphire;
 }
 
@@ -102,7 +90,7 @@ window#waybar {
   font-size: 2rem
 }
 
-#workspaces {
+#workspaces, #custom-media, #tray {
   background-color: @green;
 }
 
@@ -149,7 +137,15 @@ window#waybar {
 
 #custom-screenshot_t {
   background-color: @text;
-  color: @mantle;
   border-radius: 0.7rem;
   padding: 0 0.7rem;
 }
+
+#custom-media {
+    min-width: 100px;
+    padding-top: 0.2rem;
+}
+
+/* #tray {
+  background-color: @mauve;
+} */

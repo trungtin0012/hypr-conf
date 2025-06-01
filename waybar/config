@@ -13,8 +13,8 @@
         //"custom/rofi",
         "hyprland/workspaces",
         //"hyprland/submap",
-        "idle_inhibitor",
-        "mpd",
+        // "idle_inhibitor",
+        "custom/media",
         "hyprland/window"
         // "custom/spotify"
     ],
@@ -25,14 +25,15 @@
         //"custom/gammastep"
     ],
     "modules-right": [
-        "custom/screenshot_t",
-        "custom/brightness",
         "temperature",
         "memory",
         "cpu",
         //"pulseaudio",
+        "custom/screenshot_t",
+        "custom/brightness",
         "wireplumber",
         "tray",
+        "custom/notification",
         "custom/power"
     ],
 }
