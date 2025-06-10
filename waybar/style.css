@@ -19,13 +19,16 @@
   font-size: 1rem
 }
 
-*:hover {
+widget:hover {
   color: @sapphire;
+}
+
+box:hover {
+    color: unset;
 }
 
 window#waybar {
   color: @text;
-  opacity: 0.8;
   background-color: @mantle;
   border-radius: 0.3rem;
   border: 0.1rem solid @green;
@@ -39,17 +42,15 @@ window#waybar {
 #tray,
 #backlight,
 #battery,
-#pulseaudio,
 #custom-lock,
 #custom-wallpaper,
+#custom-notification,
 #workspaces,
 #system-info,
 #custom-group,
-#custom-brightness,
-#custom-media, 
-#wireplumber {
+#custom-media {
   padding: 0 0.6rem;
-  /* margin: 0.3rem 0.3rem; */
+  margin: 0.3rem 0.3rem;
   border-radius: 1rem;
 }
 
@@ -57,7 +58,6 @@ window#waybar {
 #custom-screenshot_t, 
 #custom-media,
 #custom-notification {
-
   color: @mantle;
 }
 
@@ -72,12 +72,15 @@ window#waybar {
   color: @peach;
 }
 
+#custom-brightness {
+  margin-left: 0.5rem;
+}
 
-#custom-screenshot_t, #custom-notification {
+#custom-screenshot_t, #custom-notification, #tray {
   background-color: @text;
   color: @mantle;
   border-radius: 0.7rem;
-  padding: 0 0.7rem;
+  /* padding: 0 0.7rem; */
 }
 
 #custom-screenshot_t:hover, 
@@ -90,7 +93,7 @@ window#waybar {
   font-size: 2rem
 }
 
-#workspaces, #custom-media, #tray {
+#workspaces, #custom-media {
   background-color: @green;
 }
 
@@ -145,7 +148,3 @@ window#waybar {
     min-width: 100px;
     padding-top: 0.2rem;
 }
-
-/* #tray {
-  background-color: @mauve;
-} */

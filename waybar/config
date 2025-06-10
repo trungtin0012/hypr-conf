@@ -10,28 +10,15 @@
     "spacing": 5, // Gaps between modules (4px)
     "include": ["$HOME/.config/waybar/modules/*.conf"],
     "modules-left": [
-        //"custom/rofi",
         "hyprland/workspaces",
-        //"hyprland/submap",
-        // "idle_inhibitor",
-        "custom/media",
-        "hyprland/window"
-        // "custom/spotify"
+        "custom/media"
     ],
     "modules-center": [
-        "clock#date",
-        "custom/sp1",
-        "custom/open-weather"
-        //"custom/gammastep"
+        "group/center"
     ],
     "modules-right": [
-        "temperature",
-        "memory",
-        "cpu",
-        //"pulseaudio",
-        "custom/screenshot_t",
-        "custom/brightness",
-        "wireplumber",
+        "group/system-info",
+        "group/actions",
         "tray",
         "custom/notification",
         "custom/power"
